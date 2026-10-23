@@ -1,6 +1,6 @@
 """
 Szczegoly lotnisk swiata z OpenStreetMap (drogi kolowania, plyty, stanowiska, terminale, miejsca oczekiwania...)
-dla aplikacji Nekrovia Aviation. Wynik: osm/<ICAO>.json.gz (GeoJSON, skompresowany).
+dla aplikacji Flightrion. Wynik: osm/<ICAO>.json.gz (GeoJSON, skompresowany).
 
 Uruchamiane przez GitHub Actions w paczkach (LIMIT_S sekund na raz). Swiat jest dzielony na kwadraty 5x5 stopni
 (tylko te z lotniskami); kwadrat to jedno zapytanie do Overpass API, zbyt duzy dzieli sie na 4.
@@ -52,7 +52,7 @@ def pobierz(s, w, n, e, nr=[0]):
     for proba in range(8):
         url = SERWERY[nr[0] % len(SERWERY)]
         req = urllib.request.Request(url, data=urllib.parse.urlencode({"data": zapytanie(s, w, n, e)}).encode(),
-                                     headers={"User-Agent": "NekroviaAviation/1.0 (prebuild lotnisk, github.com/Emps95FML/nekrovia-lotniska)"})
+                                     headers={"User-Agent": "Flightrion/1.0 (prebuild lotnisk, github.com/Emps95FML/flightrion-lotniska)"})
         try:
             with urllib.request.urlopen(req, timeout=300) as r:
                 dane = json.load(r)

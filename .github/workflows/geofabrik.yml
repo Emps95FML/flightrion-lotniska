@@ -68,7 +68,7 @@ jobs:
           ls -la swiat
       - name: Zapisz w repozytorium
         run: |
-          git config user.name "nekrovia-bot"
+          git config user.name "flightrion-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A osm swiat
           git commit -qm "Lotniska OSM z Geofabrik: caly swiat" || exit 0
